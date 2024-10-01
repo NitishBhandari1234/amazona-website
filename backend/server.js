@@ -11,12 +11,13 @@ import uploadRouter from "./routes/uploadRoutes.js";
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
   .then(() => {
     console.log("connected to db");
   })
   .catch((err) => {
     console.log(err.message);
+    console.log("error hai");
   });
 
 const app = express();
